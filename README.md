@@ -32,44 +32,109 @@ dart pub get     # or: flutter pub get
 
 ```dart
 import 'package:algeria_cities/algeria_cities.dart';
+```
 
-// Wilayas
-AlgeriaCities.wilayas;              // List<Wilaya>, all 69, ordered by code
-AlgeriaCities.wilaya(31);            // Wilaya? — Oran, or null if the code doesn't exist
+### Get all wilayas
 
-// Communes
-AlgeriaCities.communes;              // List<Commune>, all 1,541
-AlgeriaCities.communesOf(31);        // List<Commune> — Oran's communes, sorted by name
+```dart
+AlgeriaCities.wilayas; // List<Wilaya>, all 69, ordered by code
+```
 
-// Dairas
-AlgeriaCities.dairas;                // List<Daira>, all dairas, deduplicated
-AlgeriaCities.dairasOf(31);          // List<Daira> — Oran's dairas, sorted by name
-AlgeriaCities.communesOfDaira(d);    // List<Commune> — communes within one daira
+### Get a wilaya by code
 
-// Search
-AlgeriaCities.search('bir el');      // communes matching by name (FR or AR)
-AlgeriaCities.search('28');          // numeric query -> all communes of wilaya 28 (M'Sila)
-AlgeriaCities.searchWilayas('28');   // -> [M'Sila], by code
+```dart
+AlgeriaCities.wilaya(31); // Wilaya? — Oran, or null if 31 doesn't exist
+```
+
+### Get all communes
+
+```dart
+AlgeriaCities.communes; // List<Commune>, all 1,541
+```
+
+### Get the communes of a wilaya
+
+```dart
+AlgeriaCities.communesOf(31); // List<Commune> — Oran's communes, sorted by name
+```
+
+### Get all dairas
+
+```dart
+AlgeriaCities.dairas; // List<Daira>, all dairas, deduplicated, sorted by wilaya then name
+```
+
+### Get the dairas of a wilaya
+
+```dart
+AlgeriaCities.dairasOf(31); // List<Daira> — Oran's dairas, sorted by name
+```
+
+### Get the communes of a daira
+
+```dart
+final daira = AlgeriaCities.dairasOf(31).first;
+AlgeriaCities.communesOfDaira(daira); // List<Commune> — sorted by name
+```
+
+### Search communes by name
+
+```dart
+AlgeriaCities.search('bir el'); // matches by name, French or Arabic, case-insensitive
+```
+
+### Search communes by wilaya number
+
+```dart
+AlgeriaCities.search('28'); // a purely numeric query -> all communes of wilaya 28 (M'Sila)
+```
+
+### Search wilayas
+
+```dart
+AlgeriaCities.searchWilayas('28');    // -> [M'Sila], exact code match
 AlgeriaCities.searchWilayas('msila'); // -> [M'Sila], by name, apostrophe-insensitive
+AlgeriaCities.searchWilayas('مسيلة'); // -> [M'Sila], by Arabic name
+```
 
-// Locations
+### Get a commune's GPS location
+
+```dart
 final c = AlgeriaCities.communesOf(31).first;
-c.latitude; c.longitude;             // the commune's own GPS point
+c.latitude;  // the commune's own latitude
+c.longitude; // the commune's own longitude
+```
 
+### Get a daira's GPS location
+
+```dart
 final d = AlgeriaCities.dairasOf(31).first;
-d.latitude; d.longitude;             // centroid of that daira's communes
+d.latitude;  // centroid latitude, averaged from that daira's communes
+d.longitude; // centroid longitude — there is no standalone daira-level point in the source data
+```
 
-// Choosing a language
+### Choose the language
+
+Every model (`Wilaya`, `Daira`, `Commune`) has a `localizedName([AlgeriaLanguage])` method, defaulting to French, so you never have to branch on `.name` vs `.nameAr` by hand:
+
+```dart
 final oran = AlgeriaCities.wilaya(31)!;
-oran.localizedName();                   // 'Oran' (defaults to French)
+oran.localizedName();                   // 'Oran' (default: French)
+oran.localizedName(AlgeriaLanguage.fr); // 'Oran'
 oran.localizedName(AlgeriaLanguage.ar); // 'وهران'
 
-final commune = AlgeriaCities.communesOf(31).first;
-commune.localizedName(AlgeriaLanguage.ar);  // commune name in Arabic
-commune.localizedDaira(AlgeriaLanguage.ar); // its daira's name in Arabic
+final daira = AlgeriaCities.dairasOf(31).first;
+daira.localizedName(AlgeriaLanguage.ar);
 
-// Build a language-aware label list, e.g. for a dropdown:
-final lang = AlgeriaLanguage.ar;
+final commune = AlgeriaCities.communesOf(31).first;
+commune.localizedName(AlgeriaLanguage.ar);  // the commune's own name in Arabic
+commune.localizedDaira(AlgeriaLanguage.ar); // its parent daira's name in Arabic
+```
+
+Pick the language once and reuse it anywhere a list of names is needed, e.g. building dropdown labels:
+
+```dart
+final lang = AlgeriaLanguage.ar; // or .fr — e.g. from the user's locale/app setting
 final labels = AlgeriaCities.wilayas.map((w) => w.localizedName(lang)).toList();
 ```
 
