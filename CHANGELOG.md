@@ -1,3 +1,8 @@
+## 1.0.1
+
+- Add pub.dev `topics` (`algeria`, `geography`, `localization`, `offline`,
+  `dataset`) to improve search discoverability and topic-based browsing.
+
 ## 1.0.0
 
 Initial release under the name `algeria_wilayas_dairas_communes` — a rename

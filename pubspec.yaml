@@ -1,7 +1,13 @@
 name: algeria_wilayas_dairas_communes
 description: All 69 Algerian wilayas and 1,541 communes, offline, in French and Arabic with dairas and GPS coordinates.
-version: 1.0.0
+version: 1.0.1
 repository: https://github.com/Djerad/algeria_wilayas_dairas_communes
+topics:
+  - algeria
+  - geography
+  - localization
+  - offline
+  - dataset
 
 environment:
   sdk: ^3.0.0
