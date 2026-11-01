@@ -1,3 +1,9 @@
+## 1.2.2
+
+- README: update the Install section now that the package is on pub.dev
+  (`dart pub add algeria_cities`), moving the path-dependency instructions
+  to their own "Local/path dependency" subsection.
+
 ## 1.2.1
 
 - Expand `example/main.dart` to demonstrate dairas, their centroid

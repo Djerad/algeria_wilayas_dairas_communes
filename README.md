@@ -14,18 +14,31 @@ All **69 wilayas**, their **dairas** (districts), and **1,541 communes** of Alge
 
 ## Install
 
-This package isn't published to pub.dev yet. Use a path (or git) dependency:
+```bash
+dart pub add algeria_cities     # or: flutter pub add algeria_cities
+```
+
+Or add it manually to `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  algeria_cities:
-    path: ../algeria_cities   # adjust to wherever this folder lives
+  algeria_cities: ^1.2.2
 ```
 
 Then:
 
 ```bash
 dart pub get     # or: flutter pub get
+```
+
+### Local/path dependency
+
+Working against an unreleased local copy of this repo instead:
+
+```yaml
+dependencies:
+  algeria_cities:
+    path: ../algeria_cities   # adjust to wherever this folder lives
 ```
 
 ## Usage
