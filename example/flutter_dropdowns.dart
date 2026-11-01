@@ -1,5 +1,5 @@
 // Flutter usage: wilaya dropdown -> commune dropdown.
-import 'package:algeria_cities/algeria_cities.dart';
+import 'package:algeria_wilayas_dairas_communes/algeria_wilayas_dairas_communes.dart';
 import 'package:flutter/material.dart';
 
 class WilayaCommunePicker extends StatefulWidget {

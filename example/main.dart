@@ -1,5 +1,5 @@
 // Run with: dart run example/main.dart
-import 'package:algeria_cities/algeria_cities.dart';
+import 'package:algeria_wilayas_dairas_communes/algeria_wilayas_dairas_communes.dart';
 
 void main() {
   print('${AlgeriaCities.wilayas.length} wilayas, '

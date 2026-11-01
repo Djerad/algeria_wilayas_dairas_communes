@@ -1,4 +1,4 @@
-# algeria_cities
+# algeria_wilayas_dairas_communes
 
 All **69 wilayas**, their **dairas** (districts), and **1,541 communes** of Algeria, offline — in French and Arabic, with GPS coordinates. Pure Dart with zero dependencies, so it works the same in a Flutter app, a CLI tool, or a server.
 
@@ -15,14 +15,14 @@ All **69 wilayas**, their **dairas** (districts), and **1,541 communes** of Alge
 ## Install
 
 ```bash
-dart pub add algeria_cities     # or: flutter pub add algeria_cities
+dart pub add algeria_wilayas_dairas_communes     # or: flutter pub add algeria_wilayas_dairas_communes
 ```
 
 Or add it manually to `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  algeria_cities: ^1.2.2
+  algeria_wilayas_dairas_communes: ^1.0.0
 ```
 
 Then:
@@ -37,14 +37,14 @@ Working against an unreleased local copy of this repo instead:
 
 ```yaml
 dependencies:
-  algeria_cities:
+  algeria_wilayas_dairas_communes:
     path: ../algeria_cities   # adjust to wherever this folder lives
 ```
 
 ## Usage
 
 ```dart
-import 'package:algeria_cities/algeria_cities.dart';
+import 'package:algeria_wilayas_dairas_communes/algeria_wilayas_dairas_communes.dart';
 ```
 
 ### Get all wilayas
@@ -156,7 +156,7 @@ final labels = AlgeriaCities.wilayas.map((w) => w.localizedName(lang)).toList();
 See [`example/flutter_dropdowns.dart`](example/flutter_dropdowns.dart) for a ready-made wilaya → commune picker:
 
 ```dart
-import 'package:algeria_cities/algeria_cities.dart';
+import 'package:algeria_wilayas_dairas_communes/algeria_wilayas_dairas_communes.dart';
 import 'package:flutter/material.dart';
 
 const WilayaCommunePicker()
