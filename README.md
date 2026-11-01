@@ -1,5 +1,10 @@
 # algeria_wilayas_dairas_communes
 
+[![pub package](https://img.shields.io/pub/v/algeria_wilayas_dairas_communes.svg)](https://pub.dev/packages/algeria_wilayas_dairas_communes)
+[![pub points](https://img.shields.io/pub/points/algeria_wilayas_dairas_communes)](https://pub.dev/packages/algeria_wilayas_dairas_communes/score)
+[![likes](https://img.shields.io/pub/likes/algeria_wilayas_dairas_communes)](https://pub.dev/packages/algeria_wilayas_dairas_communes/score)
+[![license: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+
 All **69 wilayas**, their **dairas** (districts), and **1,541 communes** of Algeria, offline — in French and Arabic, with GPS coordinates. Pure Dart with zero dependencies, so it works the same in a Flutter app, a CLI tool, or a server.
 
 ## Features
@@ -22,7 +27,7 @@ Or add it manually to `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  algeria_wilayas_dairas_communes: ^1.0.0
+  algeria_wilayas_dairas_communes: ^1.0.1
 ```
 
 Then:
