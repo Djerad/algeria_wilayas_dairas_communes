@@ -1,3 +1,9 @@
+## 1.2.1
+
+- Expand `example/main.dart` to demonstrate dairas, their centroid
+  coordinates, communes-of-a-daira, both search methods, and
+  `localizedName`/`localizedDaira`, instead of just a wilaya → commune loop.
+
 ## 1.2.0
 
 - Add `AlgeriaLanguage` (`fr`/`ar`) and `localizedName([language])` on
